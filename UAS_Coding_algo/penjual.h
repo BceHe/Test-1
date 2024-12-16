@@ -6,19 +6,19 @@
 using namespace std;
 
 struct Menu {
-    std::string nama;
+    string nama;
     double harga;
-    std::string linkFoto;
+    string linkFoto;
 };
 
 struct AkunPenjual {
-    std::string gmail;
-    std::string whatsappBusiness;
-    std::string metodePembayaran;
-    std::string namaGerobak;
-    std::string jamOperasional;
-    std::string lokasi;
-    std::vector<Menu> menuItems;
+    string gmail;
+    string whatsappBusiness;
+    string metodePembayaran;
+    string namaGerobak;
+    string jamOperasional;
+    string lokasi;
+    vector<Menu> menuItems;
     bool gpsAccess;
     bool layananAntar;
     double jarakMinimum;
