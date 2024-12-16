@@ -1,3 +1,8 @@
+#include <iostream>
+#include <vector>
+#include <cmath>
+#include "penjual.h"
+using namespace std;
 
 
 void sellerMenu(string loggedInUser) {
