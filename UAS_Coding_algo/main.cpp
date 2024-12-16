@@ -5,6 +5,7 @@
 #include "account.h"
 #include "menu.h"
 #include "penjual.h"
+#include "buyer.h"
 
 using namespace std;
 
