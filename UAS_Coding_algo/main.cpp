@@ -43,6 +43,7 @@ void mainMenu() {
         switch (choice) {
             case 1:
                 createAccount("Pembeli");
+                buatAkunPenjual();
                 break;
             case 2:
                 createAccount("Penjual");
@@ -54,7 +55,7 @@ void mainMenu() {
                 break;
             case 4:
                 if (login("Penjual", loggedInUser)) {
-                    buatAkunPenjual();
+                displayAkunPenjual();
                 }
                 break;
             case 0:
