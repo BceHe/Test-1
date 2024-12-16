@@ -6,6 +6,12 @@
 #include <cmath>
 using namespace std;
 
+struct Location {
+    double latitude;
+    double longitude;
+};
+
+
 void sellerMenu(string loggedInUser);
 
 #endif
