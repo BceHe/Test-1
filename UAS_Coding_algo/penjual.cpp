@@ -55,29 +55,6 @@ void tambahMenu(vector<Menu> &menuItems) {
     }
 }
 
- void displayAkunPenjual(const AkunPenjual &accPenjual) {
-    cout << "\n" << "Akun penjual telah dibuat!" << "\n";
-    cout << "Gmail: " << accPenjual.gmail << "\n";
-    cout << "WhatsApp Business: " << accPenjual.whatsappBusiness << "\n";
-    cout << "Payment Method: " << accPenjual.metodePembayaran << "\n";
-    cout << "Nama Gerobak: " << accPenjual.namaGerobak << "\n";
-    cout << "Jam Operasional: " << accPenjual.jamOperasional << "\n";
-    cout << "Lokasi: " << accPenjual.lokasi << "\n";
-
-    cout << "\n" << "Menu Makanan & Minuman:" << "\n";
-    for (int i = 0; i < accPenjual.menuItems.size(); ++i) {
-        cout << "- " << accPenjual.menuItems[i].nama << " |" << " Rp" << accPenjual.menuItems[i].harga << " | " << accPenjual.menuItems[i].linkFoto << "\n";
-    }
-
-    if (accPenjual.layananAntar) {
-        cout << "\n" << "Jasa antar makan:" << "\n";
-        cout << "Jarak Minimum: " << accPenjual.jarakMinimum << " km" << "\n";
-        cout << "Jarak Maksimum: " << accPenjual.jarakMaksimum << " km" << "\n";
-        cout << "Biaya ongkos antar makan: Rp" << accPenjual.biayaOngkos << "\n";
-         }
-    }
-
-
  void buatAkunPenjual() {
     AkunPenjual accPenjual;
 
@@ -144,6 +121,28 @@ void tambahMenu(vector<Menu> &menuItems) {
         cout << "\n" << "PENGIRIMAN DITAWARKAN ATAS RESIKO ANDA SENDIRI & TIDAK DIDUKUNG OLEH PIHAK APLIKASI!!" << "\n";
     }
 }
+
+ void displayAkunPenjual(const AkunPenjual &accPenjual) {
+    cout << "\n" << "Akun penjual telah dibuat!" << "\n";
+    cout << "Gmail: " << accPenjual.gmail << "\n";
+    cout << "WhatsApp Business: " << accPenjual.whatsappBusiness << "\n";
+    cout << "Payment Method: " << accPenjual.metodePembayaran << "\n";
+    cout << "Nama Gerobak: " << accPenjual.namaGerobak << "\n";
+    cout << "Jam Operasional: " << accPenjual.jamOperasional << "\n";
+    cout << "Lokasi: " << accPenjual.lokasi << "\n";
+
+    cout << "\n" << "Menu Makanan & Minuman:" << "\n";
+    for (int i = 0; i < accPenjual.menuItems.size(); ++i) {
+        cout << "- " << accPenjual.menuItems[i].nama << " |" << " Rp" << accPenjual.menuItems[i].harga << " | " << accPenjual.menuItems[i].linkFoto << "\n";
+    }
+
+    if (accPenjual.layananAntar) {
+        cout << "\n" << "Jasa antar makan:" << "\n";
+        cout << "Jarak Minimum: " << accPenjual.jarakMinimum << " km" << "\n";
+        cout << "Jarak Maksimum: " << accPenjual.jarakMaksimum << " km" << "\n";
+        cout << "Biaya ongkos antar makan: Rp" << accPenjual.biayaOngkos << "\n";
+         }
+    }
 
 int main() {   
     buatAkunPenjual();
