@@ -2,6 +2,7 @@
 #include <vector>
 #include <cmath>
 #include "pembeli.h"
+using namespace std;
 
 
 void buyerMenu(string loggedInUser) {
