@@ -1,4 +1,4 @@
-#includ "penjual.h"
+#include "penjual.h"
 #include <iostream>
 #include <vector>
 #include <string>
@@ -6,7 +6,7 @@ using namespace std;
 // Bagian Akun Penjual, James Edison Wihardja, 2410101041
 
 struct Menu {
-    string nama;
+    String nama;
     double harga;
     string linkFoto;
 };
