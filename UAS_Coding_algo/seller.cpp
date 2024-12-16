@@ -1,38 +1,38 @@
-void buyerMenu(string loggedInUser) {
-    cout << "Menu Pembeli (" << loggedInUser << ")" << endl;
+
+
+void sellerMenu(string loggedInUser) {
+    cout << "Menu Penjual (" << loggedInUser << ")" << endl;
+
+    char activateGPS;
+    cout << "Apakah Anda ingin mengaktifkan GPS? (y/n): ";
+    cin >> activateGPS;
+    if (activateGPS == 'y' || activateGPS == 'Y') {
+        activateGPSForPenjual(loggedInUser);
+    }
+
+    char receiveOrder;
+    cout << "Apakah Anda menerima pesanan baru? (y/n): ";
+    cin >> receiveOrder;
+    if (receiveOrder == 'y' || receiveOrder == 'Y') {
+        cout << "Pesanan diterima. Anda dapat memulai memasak." << endl;
     
-    cout << "Mendeteksi Penjual terdekat..." << endl;
-    Location penjualLocation = { -6.2088, 106.8456 };
-    Location pembeliLocation = { -6.1990, 106.8355 };
+        cout << "Menghubungi pembeli via WhatsApp untuk konfirmasi lebih lanjut..." << endl;
 
-    double distance = calculateDistance(penjualLocation, pembeliLocation);
-    if (distance <= 5.0) {
-        cout << "Penjual terdekat dalam radius 5 km ditemukan." << endl;
-        cout << "Jarak: " << distance << " km" << endl;
-        
-        vector<string> menuItems = { "Nasi Goreng", "Mie Goreng", "Es Teh" };
-        int orderChoice;
-        cout << "Pilih menu untuk dipesan (masukkan nomor):" << endl;
-        for (int i = 0; i < menuItems.size(); ++i) {
-            cout << i + 1 << ". " << menuItems[i] << endl;
-        }
-        cout << "Pilihan: ";
-        cin >> orderChoice;
-
-        if (orderChoice > 0 && orderChoice <= menuItems.size()) {
-            cout << "Menu yang Anda pilih: " << menuItems[orderChoice - 1] << endl;
+        double distanceToBuyer;
+        cout << "Masukkan jarak Anda ke pembeli dalam meter: ";
+        cin >> distanceToBuyer;
+        if (distanceToBuyer <= 100) {
+            cout << "Pembeli sudah dekat. Order dapat diselesaikan." << endl;
         } else {
-            cout << "Pilihan tidak valid." << endl;
+            cout << "Pembeli belum cukup dekat. Menunggu konfirmasi." << endl;
         }
 
-        char confirmOrder;
-        cout << "Konfirmasi pesanan? (y/n): ";
-        cin >> confirmOrder;
-        if (confirmOrder == 'y' || confirmOrder == 'Y') {
-            cout << "Pesanan telah dikonfirmasi. Silakan lakukan pembayaran secara online." << endl;
+        char cancelOrder;
+        cout << "Apakah pembeli membatalkan pesanan? (y/n): ";
+        cin >> cancelOrder;
+        if (cancelOrder == 'y' || cancelOrder == 'Y') {
+            cout << "Pesanan dibatalkan. Anda tetap akan menerima pembayaran." << endl;
         }
-    } else {
-        cout << "Penjual terlalu jauh. Jarak: " << distance << " km" << endl;
     }
 }
 
