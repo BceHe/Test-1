@@ -54,6 +54,7 @@ void tambahMenu(vector<Menu> &menuItems) {
         }
     }
 }
+
  void displayAkunPenjual(const AkunPenjual &accPenjual) {
     cout << "\n" << "Akun penjual telah dibuat!" << "\n";
     cout << "Gmail: " << accPenjual.gmail << "\n";
