@@ -4,6 +4,20 @@
 #include "penjual.h"
 using namespace std;
 
+double calculateDistance(Location loc1, Location loc2) {
+    const double R = 6371;
+    double lat1 = loc1.latitude * M_PI / 180;
+    double lon1 = loc1.longitude * M_PI / 180;
+    double lat2 = loc2.latitude * M_PI / 180;
+    double lon2 = loc2.longitude * M_PI / 180;
+    double dlat = lat2 - lat1;
+    double dlon = lon2 - lon1;
+    double a = sin(dlat / 2) * sin(dlat / 2) + cos(lat1) * cos(lat2) * sin(dlon / 2) * sin(dlon / 2);
+    double c = 2 * atan2(sqrt(a), sqrt(1 - a));
+    return R * c;
+}
+
+
 
 void sellerMenu(string loggedInUser) {
     cout << "Menu Penjual (" << loggedInUser << ")" << endl;
