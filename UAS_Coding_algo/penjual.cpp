@@ -54,13 +54,37 @@ void tambahMenu(vector<Menu> &menuItems) {
         }
     }
 }
+ void displayAkunPenjual(const AkunPenjual &accPenjual) {
+    cout << "\n" << "Akun penjual telah dibuat!" << "\n";
+    cout << "Gmail: " << accPenjual.gmail << "\n";
+    cout << "WhatsApp Business: " << accPenjual.whatsappBusiness << "\n";
+    cout << "Payment Method: " << accPenjual.metodePembayaran << "\n";
+    cout << "Nama Gerobak: " << accPenjual.namaGerobak << "\n";
+    cout << "Jam Operasional: " << accPenjual.jamOperasional << "\n";
+    cout << "Lokasi: " << accPenjual.lokasi << "\n";
 
-void buatAkunPenjual() {
+    cout << "\n" << "Menu Makanan & Minuman:" << "\n";
+    for (int i = 0; i < accPenjual.menuItems.size(); ++i) {
+        cout << "- " << accPenjual.menuItems[i].nama << " |" << " Rp" << accPenjual.menuItems[i].harga << " | " << accPenjual.menuItems[i].linkFoto << "\n";
+    }
+
+    if (accPenjual.layananAntar) {
+        cout << "\n" << "Jasa antar makan:" << "\n";
+        cout << "Jarak Minimum: " << accPenjual.jarakMinimum << " km" << "\n";
+        cout << "Jarak Maksimum: " << accPenjual.jarakMaksimum << " km" << "\n";
+        cout << "Biaya ongkos antar makan: Rp" << accPenjual.biayaOngkos << "\n";
+         }
+    }
+
+
+int main() {
     AkunPenjual accPenjual;
- 
+
+    
     cout << "Masukkan Gmail Anda: ";
     cin >> accPenjual.gmail;
 
+    
     do {
         cout << "Input nomor WhatsApp Business" << "\n" <<  
         "(Input belum jika tidak punya nomor WhatsApp Business): ";
@@ -72,6 +96,7 @@ void buatAkunPenjual() {
         }
     } while(accPenjual.whatsappBusiness == "belum");
 
+ 
     cout << "Metode pembayaran: ";
     cin.ignore();
     getline(cin, accPenjual.metodePembayaran);
@@ -95,7 +120,7 @@ void buatAkunPenjual() {
     }
 
     do {
-        cout << "\n" << "Izinkan akses GPS? (y/n): ";
+        cout << "\n" << "Izin akses GPS? (y/n): ";
         char gpsAccess;
         cin >> gpsAccess;
         
@@ -121,23 +146,7 @@ void buatAkunPenjual() {
         cout << "\n" << "PENGIRIMAN DITAWARKAN ATAS RESIKO ANDA SENDIRI & TIDAK DIDUKUNG OLEH PIHAK APLIKASI!!" << "\n";
     }
 
-    cout << "\n" << "Akun penjual telah dibuat!" << "\n";
-    cout << "Gmail: " << accPenjual.gmail << "\n";
-    cout << "WhatsApp Business: " << accPenjual.whatsappBusiness << "\n";
-    cout << "Payment Method: " << accPenjual.metodePembayaran << "\n";
-    cout << "Nama Gerobak: " << accPenjual.namaGerobak << "\n";
-    cout << "Jam Operasional: " << accPenjual.jamOperasional << "\n";
-    cout << "Lokasi: " << accPenjual.lokasi << "\n";
-
-    cout << "\n" << "Menu Makanan & Minuman:" << "\n";
-    for (int i = 0; i < accPenjual.menuItems.size(); ++i) {
-        cout << "- " << accPenjual.menuItems[i].nama << " (Rp" << accPenjual.menuItems[i].harga << "): " << accPenjual.menuItems[i].linkFoto << "\n";
-    }
-
-    if (accPenjual.layananAntar) {
-        cout << "\n" << "Jasa antar makan:" << "\n";
-        cout << "Jarak Minimum: " << accPenjual.jarakMinimum << " km" << "\n";
-        cout << "Jarak Maksimum: " << accPenjual.jarakMaksimum << " km" << "\n";
-        cout << "Biaya ongkos antar makan: Rp" << accPenjual.biayaOngkos << "\n";
-    }
+displayAkunPenjual(accPenjual);
+return 0;
 }
+
