@@ -3,7 +3,6 @@
 #include <vector>
 #include <string>
 using namespace std;
-// Bagian Akun Penjual, James Edison Wihardja, 2410101041
 
 struct Menu {
     string nama;
