@@ -56,7 +56,7 @@ void tambahMenu(vector<Menu> &menuItems) {
     }
 }
 
-int main() {
+void buatAkunPenjual() {
     AkunPenjual accPenjual;
  
     cout << "Masukkan Gmail Anda: ";
@@ -141,8 +141,6 @@ int main() {
         cout << "Jarak Maksimum: " << accPenjual.jarakMaksimum << " km" << "\n";
         cout << "Biaya ongkos antar makan: Rp" << accPenjual.biayaOngkos << "\n";
     }
-
-    return 0;
 }
 
 
