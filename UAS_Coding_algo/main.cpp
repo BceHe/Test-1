@@ -8,7 +8,7 @@
 
 using namespace std;
 
-structure Location {
+struct Location {
     double latitude;
     double longitude;
 };
