@@ -6,7 +6,7 @@ using namespace std;
 // Bagian Akun Penjual, James Edison Wihardja, 2410101041
 
 struct Menu {
-    String nama;
+    string nama;
     double harga;
     string linkFoto;
 };
