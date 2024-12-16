@@ -78,14 +78,12 @@ void tambahMenu(vector<Menu> &menuItems) {
     }
 
 
-int main() {
+ void buatAkunPenjual() {
     AkunPenjual accPenjual;
 
-    
     cout << "Masukkan Gmail Anda: ";
     cin >> accPenjual.gmail;
 
-    
     do {
         cout << "Input nomor WhatsApp Business" << "\n" <<  
         "(Input belum jika tidak punya nomor WhatsApp Business): ";
@@ -97,7 +95,6 @@ int main() {
         }
     } while(accPenjual.whatsappBusiness == "belum");
 
- 
     cout << "Metode pembayaran: ";
     cin.ignore();
     getline(cin, accPenjual.metodePembayaran);
@@ -146,8 +143,9 @@ int main() {
         cin >> accPenjual.biayaOngkos;
         cout << "\n" << "PENGIRIMAN DITAWARKAN ATAS RESIKO ANDA SENDIRI & TIDAK DIDUKUNG OLEH PIHAK APLIKASI!!" << "\n";
     }
-
-displayAkunPenjual(accPenjual);
-return 0;
 }
 
+int main() {   
+    buatAkunPenjual();
+    return 0;
+}
