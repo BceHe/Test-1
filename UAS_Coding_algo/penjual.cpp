@@ -1,4 +1,4 @@
-#include "penjual.h"
+#includ "penjual.h"
 #include <iostream>
 #include <vector>
 #include <string>
