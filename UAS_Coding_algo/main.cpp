@@ -139,7 +139,7 @@ void mainMenu() {
                 break;
             case 4:
                 if (login("Penjual", loggedInUser)) {
-                    sellerMenu(loggedInUser);
+                    buatAkunPenjual();
                 }
                 break;
             case 0:
