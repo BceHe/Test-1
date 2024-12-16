@@ -27,7 +27,7 @@ struct AkunPenjual {
 };
 
 // Fungsi untuk menambah menu
-void tambahMenu(std::vector<Menu>& menuItems);
+void tambahMenu(vector<Menu>& menuItems);
 
 // Fungsi untuk membuat akun penjual
 void buatAkunPenjual();
