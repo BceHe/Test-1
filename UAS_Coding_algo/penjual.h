@@ -27,7 +27,7 @@ struct AkunPenjual {
 };
 
 // Fungsi untuk menambah menu
-void tambahMenu(vector<Menu>& menuItems);
+void tambahMenu(vector<Menu> &menuItems);
 
 // Fungsi untuk display & login akun penjual
 void displayAkunPenjual(const AkunPenjual &accPenjual) {
