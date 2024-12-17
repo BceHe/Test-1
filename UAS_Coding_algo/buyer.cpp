@@ -41,8 +41,8 @@ void buyerMenu(string loggedInUser) {
     }
 
     string menuChoice;
-    cout << "\nMasukkan nama menu yang ingin Anda pesan: ";
-    cin.ignore();
+    cout << "berikut adalah menu yang bisa anda pilih: " << menuItems << endl;
+    cin >> menuChoice;
     getline(cin, menuChoice);
 
     bool found = false;
@@ -57,6 +57,10 @@ void buyerMenu(string loggedInUser) {
             cin >> confirmOrder;
             if (confirmOrder == 'y' || confirmOrder == 'Y') {
                 cout << "Pesanan telah dikonfirmasi. Silakan lakukan pembayaran secara online." << endl;
+                Order newOrder;
+                newOrder.buyerName = loggedInUser;
+                newOrder.menuItem = menu;
+                orders.push_back(newOrder);
             }
             break;
         }
