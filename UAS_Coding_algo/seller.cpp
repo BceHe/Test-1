@@ -33,7 +33,14 @@ void sellerMenu(string loggedInUser) {
     cout << "Apakah Anda menerima pesanan baru? (y/n): ";
     cin >> receiveOrder;
     if (receiveOrder == 'y' || receiveOrder == 'Y') {
-        cout << "Pesanan diterima. Anda dapat memulai memasak." << endl;
+       cout << "Pesanan yang diterima:\n";
+        for (const auto &order : orders) {
+            cout << "Pembeli: " << order.buyerName << "\n";
+            cout << "Daftar menu yang dipesan:\n";
+            for (const auto &menu : order.menuItems) {
+                cout << "- " << menu.nama << " | Rp" << menu.harga << " | " << menu.linkFoto << "\n";
+            }
+        }
     
         cout << "Menghubungi pembeli via WhatsApp untuk konfirmasi lebih lanjut..." << endl;
 
