@@ -2,6 +2,7 @@
 #include <vector>
 #include <cmath>
 #include "penjual.h"
+#include "pembeli.h"
 using namespace std;
 
 double calculateDistance(Location loc1, Location loc2) {
@@ -29,21 +30,24 @@ void sellerMenu(string loggedInUser) {
         activateGPSForPenjual(loggedInUser);
     }
 
+    if (orders.empty()) {
+        cout << "Tidak ada pesanan saat ini." << endl;
+        return;
+    }
+    
     char receiveOrder;
     cout << "Apakah Anda menerima pesanan baru? (y/n): ";
     cin >> receiveOrder;
-    if (receiveOrder == 'y' || receiveOrder == 'Y') {
-       cout << "Pesanan yang diterima:\n";
+    if (receiveOrder == 'y') {
+     cout << "Daftar Pesanan yang Diterima:" << endl;
         for (const auto &order : orders) {
-            cout << "Pembeli: " << order.buyerName << "\n";
-            cout << "Daftar menu yang dipesan:\n";
-            for (const auto &menu : order.menuItems) {
-                cout << "- " << menu.nama << " | Rp" << menu.harga << " | " << menu.linkFoto << "\n";
-            }
+            cout << "Pembeli: " << order.buyerName << endl;
+            cout << "- Menu: " << order.menuItem.nama << endl;
+            cout << "  Harga: Rp" << order.menuItem.harga << endl;
+            cout << "  Link Foto: " << order.menuItem.linkFoto << endl;
+            }else {
+            cout << "pesanan di tolak oleh penjual." << endl;
         }
-    
-        cout << "Menghubungi pembeli via WhatsApp untuk konfirmasi lebih lanjut..." << endl;
-
         double distanceToBuyer;
         cout << "Masukkan jarak Anda ke pembeli dalam meter: ";
         cin >> distanceToBuyer;
@@ -52,12 +56,14 @@ void sellerMenu(string loggedInUser) {
         } else {
             cout << "Pembeli belum cukup dekat. Menunggu konfirmasi." << endl;
         }
-
-        char cancelOrder;
-        cout << "Apakah pembeli membatalkan pesanan? (y/n): ";
-        cin >> cancelOrder;
-        if (cancelOrder == 'y' || cancelOrder == 'Y') {
-            cout << "Pesanan dibatalkan. Anda tetap akan menerima pembayaran." << endl;
+         char completeOrder;
+        cout << "Apakah pembeli sudah mengambil makanan? (y/n): ";
+        cin >> completeOrder;
+        if (completeOrder == 'y' || completeOrder == 'Y') {
+            cout << "Pesanan telah selesai dan diambil oleh pembeli." << endl;
+            orders.erase(orders.begin());
+        } else {
+            cout << "Pesanan belum selesai. Menunggu pembeli mengambil makanan." << endl;
         }
     }
 }
