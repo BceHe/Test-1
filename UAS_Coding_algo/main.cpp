@@ -55,7 +55,7 @@ void mainMenu() {
                 break;
             case 4:
                 if (login("Penjual", loggedInUser)) {
-                displayAkunPenjual();
+                    sellerMenu(loggedInUser);
                 }
                 break;
             case 0:
