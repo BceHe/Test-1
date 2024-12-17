@@ -2,6 +2,7 @@
 #include <vector>
 #include <cmath>
 #include "pembeli.h"
+#include "penjual.h"
 using namespace std;
 
 double calculateDistance(Location loc1, Location loc2) {
@@ -28,29 +29,38 @@ void buyerMenu(string loggedInUser) {
     if (distance <= 5.0) {
         cout << "Penjual terdekat dalam radius 5 km ditemukan." << endl;
         cout << "Jarak: " << distance << " km" << endl;
+
+        if (menuItems.empty()) {
+        cout << "Menu tidak tersedia saat ini." << endl;
+        return;
+    }
         
-        vector<string> menuItems = { "Nasi Goreng", "Mie Goreng", "Es Teh" };
-        int orderChoice;
-        cout << "Pilih menu untuk dipesan (masukkan nomor):" << endl;
-        for (int i = 0; i < menuItems.size(); ++i) {
-            cout << i + 1 << ". " << menuItems[i] << endl;
-        }
-        cout << "Pilihan: ";
-        cin >> orderChoice;
+       cout << "Daftar Menu:" << endl;
+    for (const auto &menu : menuItems) {
+        cout << "- " << menu.nama << " | Rp" << menu.harga << " | " << menu.linkFoto << endl;
+    }
 
-        if (orderChoice > 0 && orderChoice <= menuItems.size()) {
-            cout << "Menu yang Anda pilih: " << menuItems[orderChoice - 1] << endl;
-        } else {
-            cout << "Pilihan tidak valid." << endl;
-        }
+    string menuChoice;
+    cout << "\nMasukkan nama menu yang ingin Anda pesan: ";
+    cin.ignore();
+    getline(cin, menuChoice);
 
-        char confirmOrder;
-        cout << "Konfirmasi pesanan? (y/n): ";
-        cin >> confirmOrder;
-        if (confirmOrder == 'y' || confirmOrder == 'Y') {
-            cout << "Pesanan telah dikonfirmasi. Silakan lakukan pembayaran secara online." << endl;
+    bool found = false;
+    for (const auto &menu : menuItems) {
+        if (menu.nama == menuChoice) {
+            found = true;
+            cout << "\nMenu yang Anda pilih: " << menu.nama << endl;
+            cout << "Harga: Rp" << menu.harga << endl;
+
+            char confirmOrder;
+            cout << "Konfirmasi pesanan? (y/n): ";
+            cin >> confirmOrder;
+            if (confirmOrder == 'y' || confirmOrder == 'Y') {
+                cout << "Pesanan telah dikonfirmasi. Silakan lakukan pembayaran secara online." << endl;
+            }
+            break;
         }
     } else {
-        cout << "Penjual terlalu jauh. Jarak: " << distance << " km" << endl;
+        cout << "anda belum ada di dekat penjual, perbedaan Jarak: " << distance << " km" << endl;
     }
 }
