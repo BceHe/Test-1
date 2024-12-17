@@ -43,10 +43,10 @@ void mainMenu() {
         switch (choice) {
             case 1:
                 createAccount("Pembeli");
-                buatAkunPenjual();
                 break;
             case 2:
                 createAccount("Penjual");
+                buatAkunPenjual();
                 break;
             case 3:
                 if (login("Pembeli", loggedInUser)) {
