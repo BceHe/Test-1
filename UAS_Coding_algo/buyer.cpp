@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include "pembeli.h"
+#include "account.h"
 #include "penjual.h"
 using namespace std;
 
